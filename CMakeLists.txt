@@ -13,6 +13,13 @@ add_subdirectory(cpp-netlib)
 add_library(${PROJECT_NAME} cpp-netlib.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC
   cpp-netlib
-  cpp-netlib/deps/uri/include
+  cpp-netlib/deps/asio/asio/include
+
 )
-target_link_libraries(${PROJECT_NAME} boost_system cppnetlib-server-parsers pthread)
+target_link_libraries(${PROJECT_NAME}
+  boost_system
+  cppnetlib-server-parsers
+  cppnetlib-client-connections
+  cppnetlib-uri
+  pthread
+)
